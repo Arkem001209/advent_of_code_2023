@@ -1,4 +1,3 @@
-print("Placeholder")
 big_list = """
 five8b
 2733vmmpknvgr
