@@ -1003,15 +1003,7 @@ one1onermlsevenseven
 my_list = big_list.splitlines()
 number_strings =['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 numbers =[0,1,2,3,4,5,6,7,8,9]
-my_altered_list = []
-for item in my_list:
-    for number in number_strings:
-        position = number_strings.index(number)
-        if number in item:
-            item.replace(number, str(numbers[position]))
-    my_altered_list = my_altered_list + [item]
 
-print(my_altered_list)
 def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
     final_product = str(numbers_only[0]) + str(numbers_only[-1])
