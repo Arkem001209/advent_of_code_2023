@@ -1001,9 +1001,17 @@ one1onermlsevenseven
 53ldplzx
 """
 my_list = big_list.splitlines()
-number_strings =['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-numbers =[1,2,3,4,5,6,7,8,9]
-#print(my_list)
+number_strings =['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+numbers =[0,1,2,3,4,5,6,7,8,9]
+my_altered_list = []
+for item in my_list:
+    for number in number_strings:
+        position = number_strings.index(number)
+        if number in item:
+            item.replace(number, str(numbers[position]))
+    my_altered_list = my_altered_list + [item]
+
+print(my_altered_list)
 def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
     final_product = str(numbers_only[0]) + str(numbers_only[-1])
@@ -1020,4 +1028,4 @@ for item in my_list[1:]:
 
 #print(list_of_coords)
 answer = sum(list_of_coords_int)
-print("Answer is " + str(answer))
+#print("Answer is " + str(answer))
