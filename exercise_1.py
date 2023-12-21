@@ -1005,4 +1005,5 @@ my_list = big_list.splitlines()
 #print(my_list)
 def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
-    return
+    final_product = str(numbers_only[0]) + str(numbers_only[-1])
+    return final_product
