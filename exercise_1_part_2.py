@@ -1008,12 +1008,11 @@ def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
     final_product = str(numbers_only[0]) + str(numbers_only[-1])
     return final_product
-
 def string_swap(b):
     for item in number_strings:
         position = number_strings.index(item)
         if item in b:
-            b.replace(item, str(numbers[position]))
+            b.replace(str(item), str(numbers[position]))
     return b
 
 test = string_swap("16stctmrmj3threeninepdsxb")
