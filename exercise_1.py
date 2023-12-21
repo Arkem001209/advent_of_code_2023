@@ -1007,3 +1007,7 @@ def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
     final_product = str(numbers_only[0]) + str(numbers_only[-1])
     return final_product
+
+#test = number_grab("16stctmrmj3threeninepdsxb")
+
+#print("This should be 13: " + test)
