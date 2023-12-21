@@ -1001,6 +1001,7 @@ one1onermlsevenseven
 53ldplzx
 """
 my_list = big_list.splitlines()
+number_strings =['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 #print(my_list)
 def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
