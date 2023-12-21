@@ -1011,3 +1011,12 @@ def number_grab(a):
 #test = number_grab("16stctmrmj3threeninepdsxb")
 
 #print("This should be 13: " + test)
+list_of_coords = []
+for item in my_list[1:]:
+    new_number = number_grab(item)
+    list_of_coords = list_of_coords + [new_number]
+    list_of_coords_int = list(map(int, list_of_coords))
+
+#print(list_of_coords)
+answer = sum(list_of_coords_int)
+print("Answer is " + str(answer))
