@@ -1,3 +1,4 @@
+import re
 big_list = """
 five8b
 2733vmmpknvgr
@@ -1006,7 +1007,8 @@ def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
     final_product = str(numbers_only[0]) + str(numbers_only[-1])
     return final_product
-def string_swap(b):
+
+def string_swap(input_string):
     number_dict = {
         'one' : '1',
         'two' : '2',
@@ -1019,9 +1021,9 @@ def string_swap(b):
         'nine' : '9',
         'zero' : '0'
     }
-    words = b.split()
-    result_words = [number_dict[word] if word in number_dict else word for word in words]
-    result_string = ' '.join(result_words)
+    pattern = re.compile(r'\b(?:' + '|'.join(number_dict.keys()) + r')\b')
+    result_string = pattern.sub(lambda x: number_dict[x.group()], input_string)
+
     return result_string
 
 test = string_swap("16stctmrmj3threeninepdsxb")
