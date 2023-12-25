@@ -1001,19 +1001,28 @@ one1onermlsevenseven
 53ldplzx
 """
 my_list = big_list.splitlines()
-number_strings =['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-numbers =['0', '1' ,'2' ,'3' ,'4', '5' ,'6' ,'7' ,'8' ,'9']
 my_altered_list = []
 def number_grab(a):
     numbers_only=''.join(filter(str.isdigit, a))
     final_product = str(numbers_only[0]) + str(numbers_only[-1])
     return final_product
 def string_swap(b):
-    for item in number_strings:
-        position = number_strings.index(item)
-        if str(item) in b:
-            b.replace(str(item), str(numbers[position]))
-    return b
+    number_dict = {
+        'one' : '1',
+        'two' : '2',
+        'three' : '3',
+        'four' : '4',
+        'five' : '5',
+        'six' : '6',
+        'seven' : '7',
+        'eight' : '8',
+        'nine' : '9',
+        'zero' : '0'
+    }
+    words = b.split()
+    result_words = [number_dict[word] if word in number_dict else word for word in words]
+    result_string = ' '.join(result_words)
+    return result_string
 
 test = string_swap("16stctmrmj3threeninepdsxb")
 #test = number_grab("16stctmrmj3threeninepdsxb")
