@@ -1021,10 +1021,11 @@ def string_swap(input_string):
         'nine' : '9',
         'zero' : '0'
     }
-    pattern = re.compile(r'\b(?:' + '|'.join(number_dict.keys()) + r')\b')
-    result_string = pattern.sub(lambda x: number_dict[x.group()], input_string)
+    for key in number_dict.keys():
+        if key in input_string:
+            input_string.translate(str.maketrans(key, number_dict[key]))
 
-    return result_string
+    return input_string
 
 test = string_swap("16stctmrmj3threeninepdsxb")
 #test = number_grab("16stctmrmj3threeninepdsxb")
