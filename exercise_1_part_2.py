@@ -1027,16 +1027,22 @@ def string_swap(input_string):
             input_string = re.sub(key, number_dict[key], input_string)
     return input_string
 
-test = string_swap("16stctmrmj3threeninepdsxb")
+#test = string_swap("16stctmrmj3threeninepdsxb")
 #test = number_grab("16stctmrmj3threeninepdsxb")
-print(test)
+#print(test)
 #print("This should be 13: " + test)
 list_of_coords = []
+letters_now_numbers = []
 for item in my_list[1:]:
+    new_item = string_swap(item)
+    letters_now_numbers = letters_now_numbers + [new_item]
+
+for item in letters_now_numbers:
     new_number = number_grab(item)
     list_of_coords = list_of_coords + [new_number]
     list_of_coords_int = list(map(int, list_of_coords))
 
-#print(list_of_coords)
+print(list_of_coords)
+#print(letters_now_numbers)
 answer = sum(list_of_coords_int)
 #print("Answer is " + str(answer))
