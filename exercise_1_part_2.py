@@ -1024,8 +1024,8 @@ def string_swap(input_string):
     for key in number_dict.keys():
         if key in input_string:
             #input_string.translate(str.maketrans(key, number_dict[key]))
-            output_string = re.sub(key, number_dict[key], input_string)
-    return output_string
+            input_string = re.sub(key, number_dict[key], input_string)
+    return input_string
 
 test = string_swap("16stctmrmj3threeninepdsxb")
 #test = number_grab("16stctmrmj3threeninepdsxb")
