@@ -1010,18 +1010,19 @@ def number_grab(a):
 
 def string_swap(input_string):
     number_dict = {
-        'one' : '1',
-        'two' : '2',
-        'three' : '3',
-        'four' : '4',
-        'five' : '5',
-        'six' : '6',
-        'seven' : '7',
-        'eight' : '8',
-        'nine' : '9',
-        'zero' : '0'
+        'one' : '100',
+        'two' : '200',
+        'three' : '30000',
+        'four' : '4000',
+        'five' : '5000',
+        'six' : '600',
+        'seven' : '70000',
+        'eight' : '80000',
+        'nine' : '9000',
+        'zero' : '0000'
     }
     for key in number_dict.keys():
+        print(key)
         if key in input_string:
             input_string.translate(str.maketrans(key, number_dict[key]))
 
