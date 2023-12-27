@@ -1004,7 +1004,6 @@ my_list = big_list.splitlines()
 
 final_coords_list = []
 for item in my_list:
-    i = 0
     numbers_only = []
     number_dict = {
         'one' : '1',
@@ -1024,20 +1023,21 @@ for item in my_list:
         subject3 = item[i:i+2]
         subject4 = item[i:i+3]
         subject5 = item[i:i+4]
-        if subject_number.type() == 'int':
-            numbers_only = numbers_only + [subject_number]
-        if subject3 in item:
-            numbers_only = numbers_only + [number_dict[subject3]]
+        if subject3 in number_dict:
+            numbers_only.append(number_dict[subject3])
 
-        if subject4 in item:
-            numbers_only = numbers_only + [number_dict[subject4]]    
+        if subject4 in number_dict:
+            numbers_only.append(number_dict[subject4])
 
-        if subject5 in item:
-            numbers_only = numbers_only + [number_dict[subject5]]
-        
-        i = i + 1
-    
-    final_product = str(numbers_only[0]) + str(numbers_only[-1])
-    final_coords_list = final_coords_list + [final_product]
+        if subject5 in number_dict:
+            numbers_only.append(number_dict[subject5])
 
-print(final_coords_list)
+    # Check if numbers_only is not empty before accessing elements
+    if numbers_only:
+        final_product = str(numbers_only[0]) + str(numbers_only[-1])
+        final_coords_list.append(final_product)
+
+list_of_coords_int = list(map(int, final_coords_list))
+answer = sum(list_of_coords_int)
+print(answer)
+#print(final_coords_list)
