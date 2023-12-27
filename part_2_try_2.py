@@ -1,4 +1,3 @@
-import re
 big_list = """
 five8b
 2733vmmpknvgr
@@ -1002,13 +1001,11 @@ one1onermlsevenseven
 53ldplzx
 """
 my_list = big_list.splitlines()
-my_altered_list = []
-def number_grab(a):
-    numbers_only=''.join(filter(str.isdigit, a))
-    final_product = str(numbers_only[0]) + str(numbers_only[-1])
-    return final_product
 
-def string_swap(input_string):
+final_coords_list = []
+for item in my_list:
+    i = 0
+    numbers_only = []
     number_dict = {
         'one' : '1',
         'two' : '2',
@@ -1021,30 +1018,26 @@ def string_swap(input_string):
         'nine' : '9',
         'zero' : '0'
     }
-    for key in number_dict.keys():
-        if key in input_string:
-            #input_string.translate(str.maketrans(key, number_dict[key]))
-            input_string = re.sub(key, number_dict[key], input_string)
-    return input_string
+    for i in range(len(item)):
+            
+        subject_number = item[i]
+        subject3 = item[i:i+2]
+        subject4 = item[i:i+3]
+        subject5 = item[i:i+4]
+        if subject_number.type() == 'int':
+            numbers_only = numbers_only + [subject_number]
+        if subject3 in item:
+            numbers_only = numbers_only + [number_dict[subject3]]
 
-#test = string_swap("16stctmrmj3threeninepdsxb")
-#test = number_grab("16stctmrmj3threeninepdsxb")
-#print(test)
-#print("This should be 13: " + test)
+        if subject4 in item:
+            numbers_only = numbers_only + [number_dict[subject4]]    
 
-letters_now_numbers = []
-for item in my_list[1:]:
-    new_item = string_swap(item)
-    letters_now_numbers = letters_now_numbers + [new_item]
+        if subject5 in item:
+            numbers_only = numbers_only + [number_dict[subject5]]
+        
+        i = i + 1
+    
+    final_product = str(numbers_only[0]) + str(numbers_only[-1])
+    final_coords_list = final_coords_list + [final_product]
 
-list_of_coords = []
-
-for item in letters_now_numbers:
-    new_number = number_grab(item)
-    list_of_coords = list_of_coords + [new_number]
-    list_of_coords_int = list(map(int, list_of_coords))
-
-print(list_of_coords_int)
-#print(letters_now_numbers)
-answer = sum(list_of_coords_int)
-print("Answer is " + str(answer))
+print(final_coords_list)
