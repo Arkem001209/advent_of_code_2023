@@ -1023,6 +1023,7 @@ for item in my_list:
         subject3 = item[i:i+2]
         subject4 = item[i:i+3]
         subject5 = item[i:i+4]
+        subject6 = item[i:i+5]
         if subject3 in number_dict:
             numbers_only.append(number_dict[subject3])
 
@@ -1031,6 +1032,9 @@ for item in my_list:
 
         if subject5 in number_dict:
             numbers_only.append(number_dict[subject5])
+
+        if subject6 in number_dict:
+            numbers_only.append(number_dict[subject6])
 
     # Check if numbers_only is not empty before accessing elements
     if numbers_only:
